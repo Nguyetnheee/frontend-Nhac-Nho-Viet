@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: ''
   });
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const Login = () => {
     setError('');
 
     try {
-      const result = await login(formData.email, formData.password);
+  const result = await login(formData.username, formData.password);
       
       if (result.success) {
         navigate('/');
@@ -70,24 +70,24 @@ const Login = () => {
           
           <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                Username
               </label>
               <input
-                id="email"
-                name="email"
-                type="email"
+                id="username"
+                name="username"
+                type="text"
                 required
-                value={formData.email}
+                value={formData.username}
                 onChange={handleChange}
                 className="input-field mt-1"
-                placeholder="Nhập email của bạn"
+                placeholder="Nhập username của bạn"
               />
             </div>
             
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Mật khẩu
+                Password
               </label>
               <input
                 id="password"
@@ -97,7 +97,7 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 className="input-field mt-1"
-                placeholder="Nhập mật khẩu"
+                placeholder="Nhập password"
               />
             </div>
           </div>
@@ -112,16 +112,7 @@ const Login = () => {
             </button>
           </div>
 
-          <div className="text-center">
-            <p className="text-sm text-gray-600">
-              Tài khoản demo:
-            </p>
-            <p className="text-xs text-gray-500 mt-1">
-              Admin: admin@nhacnho.vn/ admin123<br/>
-              User: user@nhacnho.vn/ user123<br/>
-              Shipper: shipper@nhacnho.vn/ shipper123
-            </p>
-          </div>
+         
         </form>
       </div>
     </div>
